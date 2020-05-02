@@ -1,0 +1,9 @@
+﻿delete from TaskLog
+delete from TaskItem
+delete from [State]
+delete from Project
+delete from TeamMember
+delete from Team
+delete from Company 
+delete from Member
+delete from [User]
