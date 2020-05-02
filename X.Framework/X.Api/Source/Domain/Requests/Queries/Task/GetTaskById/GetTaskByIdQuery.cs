@@ -37,14 +37,14 @@ namespace X.Api.Source.Domain.Requests.Queries
                     throw new NotFoundException();
                 }
 
+                var dto = mapper.Map<GetTaskByIdDto>(task);
                 var lastLog = await context
                     .TaskLogs
                     .OrderByDescending(o => o.LogDate)
-                    .FirstAsync(o => o.TaskItemId == request.Id);
+                    .FirstAsync(o => o.TaskItemId == dto.TaskId);
 
-                var dto = mapper.Map<GetTaskByIdDto>(task);
                 dto.Comment = lastLog.Comment;
-                if (lastLog.UserId.HasValue)
+                if (lastLog.UserId != null)
                 {
                     dto.Owner = new GetTaskByIdDto.OwnerDto 
                     { 
