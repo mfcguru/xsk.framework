@@ -78,7 +78,7 @@ namespace X.Api.Source.Domain.Requests.Command
                         FirstName = request.Dto.UserInfo.FirstName,
                         LastName = request.Dto.UserInfo.LastName,
                         PhotoUrl = request.Dto.UserInfo.PhotoUrl,
-                        TeamMembers = new HashSet<TeamMember> { new TeamMember { Team = team } }
+                        TeamMembers = new HashSet<Entities.TeamMember> { new Entities.TeamMember { Team = team } }
                     }
                 };
 

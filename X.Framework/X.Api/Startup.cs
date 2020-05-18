@@ -9,7 +9,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using X.Api.Entities;
+using X.Api.Source.Infrastructure;
 using X.Api.Source.Infrastructure.Helpers;
+using X.Api.Source.Infrastructure.Messaging;
 
 namespace X.Api
 {
@@ -64,6 +66,8 @@ namespace X.Api
             services.AddControllers();
             services.AddMediatR(typeof(Startup));
             services.AddAutoMapper(typeof(Startup));
+
+            services.AddScoped<IMessagingService, EmailMessagingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
