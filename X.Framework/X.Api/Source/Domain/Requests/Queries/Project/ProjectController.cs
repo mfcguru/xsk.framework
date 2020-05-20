@@ -22,5 +22,12 @@ namespace X.Api.Source.Domain.Requests.Queries.Project
 			var result = await mediator.Send(new GetAllProjectsByUserIdQuery(userId));
 			return Ok(result);
 		}
+
+		[HttpGet("{projectId}/TeamMembers")]
+		public async Task<ActionResult<IEnumerable<GetProjectTeamMembersDto>>> GetProjectTeamMembers(int projectId)
+		{
+			var result = await mediator.Send(new GetProjectTeamMembersQuery(projectId));
+			return Ok(result);
+		}
 	}
 }
