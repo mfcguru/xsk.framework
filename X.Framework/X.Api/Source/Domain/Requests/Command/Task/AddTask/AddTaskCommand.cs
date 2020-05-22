@@ -39,7 +39,8 @@ namespace X.Api.Source.Domain.Requests.Command
                 {
                     IsChangeStateAction = true,
                     LogDate = DateTime.UtcNow,
-                    StateId = state.StateId
+                    StateId = state.StateId,
+                    UserId = request.Dto.AssignedTo
                 };
 
                 var taskItem = mapper.Map<TaskItem>(request.Dto);

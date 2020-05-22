@@ -14,5 +14,7 @@ namespace X.Api.Source.Domain.Requests.Command
 
         [Required]
         public int CreatedBy { get; set; }
+
+        public int? AssignedTo { get; set; }
     }
 }

@@ -6,7 +6,7 @@ namespace X.Api.Source.Domain.Requests.Command
     public class EditTaskDto
     {
         [Required]
-        public string TaskItemName { get; set; }
+        public string TaskName { get; set; }
         public string Description { get; set; }
         public int? OwnerId { get; set; }
         public string Comment { get; set; }
