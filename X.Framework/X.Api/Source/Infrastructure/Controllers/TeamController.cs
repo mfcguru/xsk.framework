@@ -23,5 +23,13 @@ namespace X.Api.Source.Infrastructure.Controllers
 
             return Ok();
         }
+
+        [HttpPost("{teamId}/ConfirmInvite")]
+        public async Task<ActionResult> ConfirmInvite(int teamId, [FromBody] ConfirmInviteDto dto)
+        {
+            await mediator.Send(new ConfirmInviteCommand(teamId, dto));
+
+            return Ok();
+        }
     }
 }
