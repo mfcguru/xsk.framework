@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Threading.Tasks;
 
 namespace X.Api.Source.Infrastructure
 {
 	public class EmailerService : IEmailerService
 	{
-		public void Send(List<string> recipients)
-		{
-			throw new NotImplementedException();
+		public async Task Send(int teamId, string recipient)
+        {
+			await Task.Run(() => { });
 		}
-	}
+    }
 }

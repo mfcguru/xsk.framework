@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace X.Api.Source.Infrastructure
 {
 	public interface IEmailerService
 	{
-		void Send(List<string> recipients);
+		Task Send(int teamId, string recipient);
 	}
 }

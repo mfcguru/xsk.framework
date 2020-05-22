@@ -1,4 +1,4 @@
-﻿namespace X.Api.Source.Domain.Requests.Command.TeamMember.InviteTeamMember
+﻿namespace X.Api.Source.Domain.Requests.Command
 {
     public class InviteTeamMemberDto
     {
