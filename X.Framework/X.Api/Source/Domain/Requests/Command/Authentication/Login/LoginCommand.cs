@@ -51,7 +51,13 @@ namespace X.Api.Source.Domain.Requests.Command
                 var projects = user.Member
                     .TeamMembers.Select(o => o.Team)
                     .SelectMany(o => o.Projects)
-                    .Select(o => o.ProjectId);
+                    .Select(o => o.ProjectId );
+
+                var projectName = user.Member
+                    .TeamMembers.Select(o => o.Team)
+                    .SelectMany(o => o.Projects)
+                    .Select(o => o.ProjectName)
+                    .First();
 
                 // authentication is successful
                 LoginResultDto result = new LoginResultDto
@@ -62,6 +68,7 @@ namespace X.Api.Source.Domain.Requests.Command
                     LastName = user.Member.LastName,
                     Token = GenerateJwtToken(user),
                     Projects = projects.ToList(),
+                    ProjectName = projectName,
                     TeamId = user.Member.TeamMembers.First().TeamId
                 };
 
