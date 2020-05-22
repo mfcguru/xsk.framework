@@ -10,5 +10,6 @@ namespace X.Api.Source.Domain.Requests.Command
 		public string LastName { get; set; }
 		public string Token { get; set; }
 		public List<int> Projects { get; set; }
+		public int TeamId { get; set; }
 	}
 }

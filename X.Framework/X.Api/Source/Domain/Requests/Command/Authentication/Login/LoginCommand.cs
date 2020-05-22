@@ -61,7 +61,8 @@ namespace X.Api.Source.Domain.Requests.Command
                     FirstName = user.Member.FirstName,
                     LastName = user.Member.LastName,
                     Token = GenerateJwtToken(user),
-                    Projects = projects.ToList()
+                    Projects = projects.ToList(),
+                    TeamId = user.Member.TeamMembers.First().TeamId
                 };
 
                 return result;
