@@ -7,6 +7,7 @@ namespace X.Api.Entities
     {
         public int TeamId { get; set; }
         public int UserId { get; set; }
+        public string Rgb { get; set; }
 
         public virtual Team Team { get; set; }
         public virtual Member User { get; set; }

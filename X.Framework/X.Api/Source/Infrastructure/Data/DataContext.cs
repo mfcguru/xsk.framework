@@ -203,6 +203,8 @@ namespace X.Api.Entities
 
                 entity.ToTable("TeamMember");
 
+                entity.Property(e => e.Rgb).HasMaxLength(12);
+
                 entity.HasOne(d => d.Team)
                     .WithMany(p => p.TeamMembers)
                     .HasForeignKey(d => d.TeamId)

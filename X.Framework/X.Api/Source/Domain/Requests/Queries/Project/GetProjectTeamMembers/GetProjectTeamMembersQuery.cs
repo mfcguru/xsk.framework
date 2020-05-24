@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using X.Api.Entities;
-using X.Api.Source.Domain.BusinessRules;
 
 namespace X.Api.Source.Domain.Requests.Queries
 {
@@ -32,7 +32,25 @@ namespace X.Api.Source.Domain.Requests.Queries
                 var project = await context.Projects.FindAsync(request.ProjectId);
                 var members = project.Team.TeamMembers.ToList();
 
+                foreach (var member in members)
+                {
+                    if (member.Rgb == null || member.Rgb == "")
+                    {
+                        member.Rgb = GetRandomColour();
+                    }
+
+                }
+
+                await context.SaveChangesAsync();
+
                 return mapper.Map<List<GetProjectTeamMembersDto>>(members);
+            }
+
+            private static readonly Random rand = new Random();
+
+            private string GetRandomColour()
+            {
+                return string.Format("{0},{1},{2}", rand.Next(256), rand.Next(256), rand.Next(256));
             }
         }
     }
