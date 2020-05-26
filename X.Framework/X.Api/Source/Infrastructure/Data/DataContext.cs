@@ -15,6 +15,7 @@ namespace X.Api.Entities
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<Member> Members { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<RgbLookup> RgbLookups { get; set; }
         public virtual DbSet<State> States { get; set; }
         public virtual DbSet<StateTransition> StateTransitions { get; set; }
         public virtual DbSet<TaskItem> TaskItems { get; set; }
@@ -107,6 +108,19 @@ namespace X.Api.Entities
                     .HasForeignKey(d => d.TeamId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Project_Team");
+            });
+
+            modelBuilder.Entity<RgbLookup>(entity =>
+            {
+                entity.HasKey(e => e.RgbLookupId);
+
+                entity.ToTable("RgbLookup");
+
+                entity.Property(e => e.RgbLookupId).ValueGeneratedNever();
+
+                entity.Property(e => e.RgbLookupValue)
+                    .IsRequired()
+                    .HasMaxLength(20);
             });
 
             modelBuilder.Entity<State>(entity =>
@@ -203,7 +217,10 @@ namespace X.Api.Entities
 
                 entity.ToTable("TeamMember");
 
-                entity.Property(e => e.Rgb).HasMaxLength(12);
+                entity.HasOne(d => d.RgbLookup)
+                    .WithMany(p => p.TeamMembers)
+                    .HasForeignKey(d => d.RgbLookupId)
+                    .HasConstraintName("FK_TeamMember_RgbLookup");
 
                 entity.HasOne(d => d.Team)
                     .WithMany(p => p.TeamMembers)

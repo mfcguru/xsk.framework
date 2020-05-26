@@ -3,12 +3,11 @@
 
 USE [Xsk]
 GO
-/****** Object:  Table [dbo].[Attachment]    Script Date: 21/04/2020 9:51:44 PM ******/
+/****** Object:  Table [dbo].[Attachment]    Script Date: 26/05/2020 5:44:50 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-
 CREATE TABLE [dbo].[Attachment](
 	[AttachmentId] [int] IDENTITY(1,1) NOT NULL,
 	[AttachmentUrl] [nvarchar](256) NOT NULL,
@@ -20,7 +19,7 @@ CREATE TABLE [dbo].[Attachment](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Company]    Script Date: 24/05/2020 3:54:58 pm ******/
+/****** Object:  Table [dbo].[Company]    Script Date: 26/05/2020 5:44:50 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -37,7 +36,7 @@ CREATE TABLE [dbo].[Company](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Member]    Script Date: 24/05/2020 3:54:58 pm ******/
+/****** Object:  Table [dbo].[Member]    Script Date: 26/05/2020 5:44:50 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -54,7 +53,7 @@ CREATE TABLE [dbo].[Member](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Project]    Script Date: 24/05/2020 3:54:58 pm ******/
+/****** Object:  Table [dbo].[Project]    Script Date: 26/05/2020 5:44:50 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -72,7 +71,21 @@ CREATE TABLE [dbo].[Project](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[State]    Script Date: 24/05/2020 3:54:58 pm ******/
+/****** Object:  Table [dbo].[RgbLookup]    Script Date: 26/05/2020 5:44:50 pm ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RgbLookup](
+	[RgbLookupId] [int] NOT NULL,
+	[RgbLookupValue] [nvarchar](20) NOT NULL,
+ CONSTRAINT [PK_RgbLookup] PRIMARY KEY CLUSTERED 
+(
+	[RgbLookupId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[State]    Script Date: 26/05/2020 5:44:50 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -89,7 +102,7 @@ CREATE TABLE [dbo].[State](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[StateTransition]    Script Date: 24/05/2020 3:54:58 pm ******/
+/****** Object:  Table [dbo].[StateTransition]    Script Date: 26/05/2020 5:44:50 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -104,7 +117,7 @@ CREATE TABLE [dbo].[StateTransition](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TaskItem]    Script Date: 24/05/2020 3:54:58 pm ******/
+/****** Object:  Table [dbo].[TaskItem]    Script Date: 26/05/2020 5:44:50 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -122,7 +135,7 @@ CREATE TABLE [dbo].[TaskItem](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TaskLog]    Script Date: 24/05/2020 3:54:58 pm ******/
+/****** Object:  Table [dbo].[TaskLog]    Script Date: 26/05/2020 5:44:50 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -141,7 +154,7 @@ CREATE TABLE [dbo].[TaskLog](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Team]    Script Date: 24/05/2020 3:54:58 pm ******/
+/****** Object:  Table [dbo].[Team]    Script Date: 26/05/2020 5:44:50 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -158,7 +171,7 @@ CREATE TABLE [dbo].[Team](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TeamMember]    Script Date: 24/05/2020 3:54:58 pm ******/
+/****** Object:  Table [dbo].[TeamMember]    Script Date: 26/05/2020 5:44:50 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -166,7 +179,7 @@ GO
 CREATE TABLE [dbo].[TeamMember](
 	[TeamId] [int] NOT NULL,
 	[UserId] [int] NOT NULL,
-	[Rgb] [nvarchar](12) NULL,
+	[RgbLookupId] [int] NULL,
  CONSTRAINT [PK_TeamMember] PRIMARY KEY CLUSTERED 
 (
 	[TeamId] ASC,
@@ -174,7 +187,7 @@ CREATE TABLE [dbo].[TeamMember](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[User]    Script Date: 24/05/2020 3:54:58 pm ******/
+/****** Object:  Table [dbo].[User]    Script Date: 26/05/2020 5:44:50 pm ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -244,6 +257,11 @@ ALTER TABLE [dbo].[TeamMember]  WITH CHECK ADD  CONSTRAINT [FK_TeamMember_Member
 REFERENCES [dbo].[Member] ([UserId])
 GO
 ALTER TABLE [dbo].[TeamMember] CHECK CONSTRAINT [FK_TeamMember_Member1]
+GO
+ALTER TABLE [dbo].[TeamMember]  WITH CHECK ADD  CONSTRAINT [FK_TeamMember_RgbLookup] FOREIGN KEY([RgbLookupId])
+REFERENCES [dbo].[RgbLookup] ([RgbLookupId])
+GO
+ALTER TABLE [dbo].[TeamMember] CHECK CONSTRAINT [FK_TeamMember_RgbLookup]
 GO
 ALTER TABLE [dbo].[TeamMember]  WITH CHECK ADD  CONSTRAINT [FK_TeamMember_Team] FOREIGN KEY([TeamId])
 REFERENCES [dbo].[Team] ([TeamId])
