@@ -32,11 +32,11 @@ namespace X.Api.Source.Domain.Requests.Queries
                 var project = await context.Projects.FindAsync(request.ProjectId);
                 var members = project.Team.TeamMembers.ToList();
 
-                for (int index = 0; index < members.Count - 1; index++)
+                for (int index = 0; index < members.Count; index++)
                 {
                     var member = members[index];
 
-                    if (member == null)
+                    if (member.RgbLookupId == null)
                     {
                         member.RgbLookupId = (await context.RgbLookups.FindAsync(index + 1)).RgbLookupId;
                     }
