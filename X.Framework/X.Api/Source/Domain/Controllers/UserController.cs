@@ -1,8 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using X.Api.Source.Domain.Requests.Command;
+using X.Api.Source.Domain.Requests.Queries;
 
-namespace X.Api.Source.Domain.Requests.Command
+namespace X.Api.Source.Domain.Requests
 {
 	[Route("api/[controller]")]
     [ApiController]
@@ -31,6 +34,20 @@ namespace X.Api.Source.Domain.Requests.Command
 		{
 			var result = await mediator.Send(new DeleteUserCommand(id));
 			return Ok();
+		}
+
+		[HttpGet]
+		public async Task<ActionResult<IEnumerable<GetAllUsersDto>>> GetAllUsers()
+		{
+			var result = await mediator.Send(new GetAllUsersQuery());
+			return Ok(result);
+		}
+
+		[HttpGet("{id}")]
+		public async Task<ActionResult<GetUserByIdDto>> GetUserById(int id)
+		{
+			var result = await mediator.Send(new GetUserByIdQuery(id));
+			return Ok(result);
 		}
 	}
 }

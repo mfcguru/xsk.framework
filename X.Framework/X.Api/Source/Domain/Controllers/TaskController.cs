@@ -1,9 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using X.Api.Source.Domain.Requests.Command;
+using X.Api.Source.Domain.Requests.Queries;
 
-namespace X.Api.Source.Domain.Requests.Command
+namespace X.Api.Source.Domain.Requests
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -44,5 +47,26 @@ namespace X.Api.Source.Domain.Requests.Command
 
 			return Ok();
 		}
-	}
+
+        [HttpGet("{projectId}/ByProjectId")]
+        public async Task<ActionResult<IEnumerable<GetAllTaskByProjectIdDto>>> GetAllTaskByProjectId(int projectId)
+        {
+            var result = await mediator.Send(new GetAllTaskByProjectIdQuery(projectId));
+            return Ok(result);
+        }
+
+        [HttpGet("{stateId}/ByStateId")]
+        public async Task<ActionResult<IEnumerable<GetAllTaskByProjectIdDto>>> GetAllTasksByStateId(Guid stateId)
+        {
+            var result = await mediator.Send(new GetAllTaskByStateIdQuery(stateId));
+            return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<GetTaskByIdDto>> GetTaskById(int id)
+        {
+            var result = await mediator.Send(new GetTaskByIdQuery(id));
+            return Ok(result);
+        }
+    }
 }

@@ -7,10 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Source\Domain\Requests\Command\Task\UpdateTask\**" />
-    <Content Remove="Source\Domain\Requests\Command\Task\UpdateTask\**" />
-    <EmbeddedResource Remove="Source\Domain\Requests\Command\Task\UpdateTask\**" />
-    <None Remove="Source\Domain\Requests\Command\Task\UpdateTask\**" />
+    <Compile Remove="Source\Domain\Requests\Queries\Company\GetAllCompanies\**" />
+    <Compile Remove="Source\Domain\Requests\Queries\Company\GetCompanyById\**" />
+    <Compile Remove="Source\Domain\Requests\Queries\Team\**" />
+    <Content Remove="Source\Domain\Requests\Queries\Company\GetAllCompanies\**" />
+    <Content Remove="Source\Domain\Requests\Queries\Company\GetCompanyById\**" />
+    <Content Remove="Source\Domain\Requests\Queries\Team\**" />
+    <EmbeddedResource Remove="Source\Domain\Requests\Queries\Company\GetAllCompanies\**" />
+    <EmbeddedResource Remove="Source\Domain\Requests\Queries\Company\GetCompanyById\**" />
+    <EmbeddedResource Remove="Source\Domain\Requests\Queries\Team\**" />
+    <None Remove="Source\Domain\Requests\Queries\Company\GetAllCompanies\**" />
+    <None Remove="Source\Domain\Requests\Queries\Company\GetCompanyById\**" />
+    <None Remove="Source\Domain\Requests\Queries\Team\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,11 +48,6 @@
 
   <ItemGroup>
     <Folder Include="Entities\" />
-    <Folder Include="Source\Domain\Requests\Command\Company\DeleteCompany\" />
-    <Folder Include="Source\Domain\Requests\Command\Company\UpdateCompany\" />
-    <Folder Include="Source\Domain\Requests\Queries\Company\GetAllCompanies\" />
-    <Folder Include="Source\Domain\Requests\Queries\Company\GetCompanyById\" />
-    <Folder Include="Source\Domain\Requests\Queries\Team\" />
   </ItemGroup>
 
 

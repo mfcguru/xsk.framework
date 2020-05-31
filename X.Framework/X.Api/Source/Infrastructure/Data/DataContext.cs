@@ -112,8 +112,6 @@ namespace X.Api.Entities
 
             modelBuilder.Entity<RgbLookup>(entity =>
             {
-                entity.HasKey(e => e.RgbLookupId);
-
                 entity.ToTable("RgbLookup");
 
                 entity.Property(e => e.RgbLookupId).ValueGeneratedNever();

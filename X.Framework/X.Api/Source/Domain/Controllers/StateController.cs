@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using X.Api.Source.Domain.Requests.Command;
+using X.Api.Source.Domain.Requests.Queries;
 
-namespace X.Api.Source.Domain.Requests.Command
+namespace X.Api.Source.Domain.Requests
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -44,6 +46,14 @@ namespace X.Api.Source.Domain.Requests.Command
             await mediator.Send(new ReorderStatesCommand(stateGuids));
 
             return Ok();
+        }
+
+        [HttpGet("{projectId}")]
+        public async Task<IActionResult> GetAllStatesByProjectId(int projectId)
+        {
+            var result = await mediator.Send(new GetAllStatesByProjectIdQuery(projectId));
+
+            return Ok(result);
         }
     }
 }

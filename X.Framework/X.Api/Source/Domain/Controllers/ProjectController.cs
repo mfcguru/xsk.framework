@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MediatR;
-using Microsoft.AspNetCore.Http;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using X.Api.Source.Domain.Requests.Queries;
 
-namespace X.Api.Source.Domain.Requests.Queries.Project
+namespace X.Api.Source.Domain.Requests
 {
-    [Route("api/[controller]")]
+	[Route("api/[controller]")]
     [ApiController]
-    public class ProjectController : ControllerBase
+    public partial class ProjectController : ControllerBase
     {
 		private readonly IMediator mediator;
 
