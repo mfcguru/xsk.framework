@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using X.Api.Entities;
 using X.Api.Source.Domain.BusinessRules;
-using X.Api.Source.Domain.Requests.Queries;
+using X.Api.Source.Domain.UsesCases.Queries;
 
 namespace X.UnitTests
 {

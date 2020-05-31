@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using X.Api.Source.Domain.Requests.Command;
-using X.Api.Source.Domain.Requests.Queries;
+using X.Api.Source.Domain.UsesCases.Command;
+using X.Api.Source.Domain.UsesCases.Queries;
 
-namespace X.Api.Source.Domain.Requests
+namespace X.Api.Source.Domain.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

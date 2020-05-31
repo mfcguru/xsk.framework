@@ -7,18 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Source\Domain\Requests\Queries\Company\GetAllCompanies\**" />
-    <Compile Remove="Source\Domain\Requests\Queries\Company\GetCompanyById\**" />
-    <Compile Remove="Source\Domain\Requests\Queries\Team\**" />
-    <Content Remove="Source\Domain\Requests\Queries\Company\GetAllCompanies\**" />
-    <Content Remove="Source\Domain\Requests\Queries\Company\GetCompanyById\**" />
-    <Content Remove="Source\Domain\Requests\Queries\Team\**" />
-    <EmbeddedResource Remove="Source\Domain\Requests\Queries\Company\GetAllCompanies\**" />
-    <EmbeddedResource Remove="Source\Domain\Requests\Queries\Company\GetCompanyById\**" />
-    <EmbeddedResource Remove="Source\Domain\Requests\Queries\Team\**" />
-    <None Remove="Source\Domain\Requests\Queries\Company\GetAllCompanies\**" />
-    <None Remove="Source\Domain\Requests\Queries\Company\GetCompanyById\**" />
-    <None Remove="Source\Domain\Requests\Queries\Team\**" />
+    <Compile Remove="Source\Domain\UsesCases\Queries\Team\**" />
+    <Content Remove="Source\Domain\UsesCases\Queries\Team\**" />
+    <EmbeddedResource Remove="Source\Domain\UsesCases\Queries\Team\**" />
+    <None Remove="Source\Domain\UsesCases\Queries\Team\**" />
   </ItemGroup>
 
   <ItemGroup>

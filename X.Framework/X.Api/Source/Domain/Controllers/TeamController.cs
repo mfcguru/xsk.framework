@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using X.Api.Source.Domain.Requests.Command;
+using X.Api.Source.Domain.UsesCases.Command;
 
 namespace X.Api.Source.Infrastructure.Controllers
 {

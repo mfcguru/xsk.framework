@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Threading;
 using X.Api.Entities;
 using X.Api.Source.Domain.BusinessRules;
-using X.Api.Source.Domain.Requests.Command;
+using X.Api.Source.Domain.UsesCases.Command;
 using X.Api.Source.Infrastructure.Helpers;
 using AsyncTask = System.Threading.Tasks.Task;
 

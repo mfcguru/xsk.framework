@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using X.Api.Source.Domain.Requests.Command;
-using X.Api.Source.Domain.Requests.Queries;
+using X.Api.Source.Domain.UsesCases.Command;
+using X.Api.Source.Domain.UsesCases.Queries;
 
-namespace X.Api.Source.Domain.Requests
+namespace X.Api.Source.Domain.Controllers
 {
 	[Route("api/[controller]")]
     [ApiController]
@@ -19,13 +19,15 @@ namespace X.Api.Source.Domain.Requests
 		public async Task<IActionResult> Post([FromBody] CreateUserDto dto)
 		{
 			var result = await mediator.Send(new CreateUserCommand(dto));
+
 			return Ok(new { id = result });
 		}
 
 		[HttpPut("{id}")]
 		public async Task<IActionResult> Put(int id, [FromBody] UpdateUserDto dto)
 		{
-			var result = await mediator.Send(new UpdateUserCommand(id, dto));
+			await mediator.Send(new UpdateUserCommand(id, dto));
+
 			return Ok();
 		}
 
@@ -40,6 +42,7 @@ namespace X.Api.Source.Domain.Requests
 		public async Task<ActionResult<IEnumerable<GetAllUsersDto>>> GetAllUsers()
 		{
 			var result = await mediator.Send(new GetAllUsersQuery());
+
 			return Ok(result);
 		}
 
@@ -47,6 +50,7 @@ namespace X.Api.Source.Domain.Requests
 		public async Task<ActionResult<GetUserByIdDto>> GetUserById(int id)
 		{
 			var result = await mediator.Send(new GetUserByIdQuery(id));
+
 			return Ok(result);
 		}
 	}

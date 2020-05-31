@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Threading.Tasks;
-using X.Api.Source.Domain.Requests.Queries;
+using X.Api.Source.Domain.UsesCases.Queries;
 
 namespace X.Api.Source.Infrastructure.Helpers
 {

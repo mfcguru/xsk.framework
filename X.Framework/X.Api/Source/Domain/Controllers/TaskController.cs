@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using X.Api.Source.Domain.Requests.Command;
-using X.Api.Source.Domain.Requests.Queries;
+using X.Api.Source.Domain.UsesCases.Command;
+using X.Api.Source.Domain.UsesCases.Queries;
 
-namespace X.Api.Source.Domain.Requests
+namespace X.Api.Source.Domain.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -52,6 +52,7 @@ namespace X.Api.Source.Domain.Requests
         public async Task<ActionResult<IEnumerable<GetAllTaskByProjectIdDto>>> GetAllTaskByProjectId(int projectId)
         {
             var result = await mediator.Send(new GetAllTaskByProjectIdQuery(projectId));
+
             return Ok(result);
         }
 
@@ -59,6 +60,7 @@ namespace X.Api.Source.Domain.Requests
         public async Task<ActionResult<IEnumerable<GetAllTaskByProjectIdDto>>> GetAllTasksByStateId(Guid stateId)
         {
             var result = await mediator.Send(new GetAllTaskByStateIdQuery(stateId));
+
             return Ok(result);
         }
 
@@ -66,6 +68,7 @@ namespace X.Api.Source.Domain.Requests
         public async Task<ActionResult<GetTaskByIdDto>> GetTaskById(int id)
         {
             var result = await mediator.Send(new GetTaskByIdQuery(id));
+
             return Ok(result);
         }
     }
